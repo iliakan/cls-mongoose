@@ -1,0 +1,26 @@
+{
+  "name": "cls-mongoose",
+  "version": "1.0.0",
+  "description": "Continuation-local-storage (CLS) mongoose shim",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iliakan/cls-mongoose.git"
+  },
+  "keywords": [
+    "mongoose",
+    "cls"
+  ],
+  "author": "Ilya Kantor (iliakan@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iliakan/cls-mongoose/issues"
+  },
+  "homepage": "https://github.com/iliakan/cls-mongoose#readme",
+  "dependencies": {
+    "shimmer": "^1.0.0"
+  }
+}

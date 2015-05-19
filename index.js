@@ -1,7 +1,7 @@
 'use strict';
 
 var shimmer = require('shimmer');
-
+var mongoose = require('mongoose');
 
 module.exports = function patchMPromise(ns) {
 

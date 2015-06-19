@@ -11,7 +11,7 @@ module.exports = function patchMPromise(ns) {
 
   shimmer.wrap(mongoose.Mongoose.prototype.Promise.prototype, 'on', function (original) {
     return function(event, callback) {
-      callback = clsNamespace.bind(callback);
+      callback = ns.bind(callback);
       return original.call(this, event, callback);
     };
   });

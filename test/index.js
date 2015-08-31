@@ -93,5 +93,17 @@ describe("mongoose with cls", function() {
     yield TestModel.count({});
   });
 
+
+  it("Model#aggregate callback", function*() {
+    yield function(callback) {
+      TestModel.aggregate({$match: {"nonexistent_field": "nonexistent_value"}}, callback);
+    };
+  });
+
+  it("Model#aggregate promise", function*() {
+    yield TestModel.aggregate({$match: {"nonexistent_field": "nonexistent_value"}}).exec();
+  });
+
+
 });
 

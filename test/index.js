@@ -5,8 +5,8 @@ const clsNamespace = cls.createNamespace('app');
 
 var mongoose = require('mongoose');
 
-var clsMongoose = require('..');
-clsMongoose(clsNamespace);
+//var clsMongoose = require('..');
+//clsMongoose(clsNamespace);
 
 var getMongooseVersion = function() {
   var fs = require('fs');
@@ -23,16 +23,12 @@ describe("mongoose with cls", function() {
 
   var TestModel = mongoose.model('test_model', mongoose.Schema({value: String}));
 
-  before(function*() {
+  before(function(done) {
 
     var context = clsNamespace.createContext();
     clsNamespace.enter(context);
 
-    clsNamespace.set("value", 1);
-
-    yield function(callback) {
-      mongoose.connect('mongodb://localhost/mongoose-cls-test', callback);
-    };
+    mongoose.connect('mongodb://localhost/mongoose-cls-test', done);
   });
 
 
@@ -41,10 +37,7 @@ describe("mongoose with cls", function() {
   });
 
 
-
-  afterEach(function() {
-    clsNamespace.get("value").should.be.eql(1);
-  });
+  /*
 
   it("Model#find callback", function*() {
     yield function(callback) {
@@ -89,19 +82,31 @@ describe("mongoose with cls", function() {
     };
   });
 
-  it("Model#count promise", function*() {
-    yield TestModel.count({});
+  it("Model#count promise", function(done) {
+    TestModel.count({}).then(done.bind(null, null), done);
+  });
+*/
+
+  it("Model#aggregate callback", function(done) {
+    var value = Math.random();
+    clsNamespace.set("value", value);
+
+    TestModel.aggregate({$match: {"nonexistent_field": "nonexistent_value"}}, function(err) {
+      if (err) return done(err);
+      clsNamespace.get("value").should.be.eql(value);
+      done();
+    });
   });
 
+  it("Model#aggregate promise", function(done) {
+    var value = Math.random();
+    clsNamespace.set("value", value);
 
-  it("Model#aggregate callback", function*() {
-    yield function(callback) {
-      TestModel.aggregate({$match: {"nonexistent_field": "nonexistent_value"}}, callback);
-    };
-  });
+    TestModel.aggregate({$match: {"nonexistent_field": "nonexistent_value"}}).exec().then(function() {
+      clsNamespace.get("value").should.be.eql(value);
 
-  it("Model#aggregate promise", function*() {
-    yield TestModel.aggregate({$match: {"nonexistent_field": "nonexistent_value"}}).exec();
+      done();
+    }, done);
   });
 
 

@@ -1,7 +1,5 @@
 --reporter spec
 --colors
 --require should
---require co
---require co-mocha
 --recursive
 --ui bdd

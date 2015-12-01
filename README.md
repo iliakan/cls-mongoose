@@ -1,3 +1,7 @@
+# This module may not work for 4.x
+
+This module may not work for the recent mongoose due to changes in it's internals.
+
 # CLS shimmer for Mongoose
 
 Adds CLS wrapper for Mongoose, making mongoose safe to use with [continuation-local-storage](https://github.com/othiym23/node-continuation-local-storage).

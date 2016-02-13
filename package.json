@@ -1,35 +1,36 @@
 {
-  "name":             "cls-mongoose",
-  "version":          "2.0.1",
-  "description":      "Continuation-local-storage (CLS) mongoose shim",
-  "main":             "index.js",
-  "scripts":          {
+  "name": "cls-mongoose",
+  "version": "2.0.1",
+  "description": "Continuation-local-storage (CLS) mongoose shim",
+  "main": "index.js",
+  "scripts": {
     "test": "tap test.js"
   },
-  "repository":       {
+  "repository": {
     "type": "git",
-    "url":  "git+https://github.com/iliakan/cls-mongoose.git"
+    "url": "git+https://github.com/iliakan/cls-mongoose.git"
   },
-  "keywords":         [
+  "keywords": [
     "mongoose",
     "cls"
   ],
-  "author":           "Ilya Kantor (iliakan@gmail.com)",
-  "license":          "ISC",
-  "bugs":             {
+  "author": "Ilya Kantor (iliakan@gmail.com)",
+  "license": "ISC",
+  "bugs": {
     "url": "https://github.com/iliakan/cls-mongoose/issues"
   },
-  "homepage":         "https://github.com/iliakan/cls-mongoose#readme",
-  "dependencies":     {
-    "shimmer": "^1"
+  "homepage": "https://github.com/iliakan/cls-mongoose#readme",
+  "dependencies": {
+    "shimmer": "^1",
+    "should": "*"
   },
   "peerDependencies": {
     "mongoose": "^4"
   },
-  "devDependencies":  {
-    "mocha":                      "^2.2.5",
-    "tap":                        "~1.3.2",
-    "mongoose":                   "^4",
+  "devDependencies": {
+    "mocha": "*",
+    "tap": "*",
+    "mongoose": "^4",
     "continuation-local-storage": "*"
   }
 }

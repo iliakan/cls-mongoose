@@ -1,6 +1,6 @@
 {
   "name": "cls-mongoose",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Continuation-local-storage (CLS) mongoose shim",
   "main": "index.js",
   "scripts": {

@@ -1,6 +1,8 @@
 # This module may not work for 4.x
 
-This module may not work for the recent mongoose due to changes in it's internals.
+Don't use CLS. It sucks.
+
+As I gave it up, this module may not work for the recent mongoose due to changes in it's internals.
 
 # CLS shimmer for Mongoose
 
